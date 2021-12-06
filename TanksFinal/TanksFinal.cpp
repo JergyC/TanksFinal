@@ -114,6 +114,6 @@ int main() {
 	printMap(Map);
 	//destroyPlayer(A.A.position[0][0], A.A.position[0][1], Map, A);
 	printMap(Map);
-	souradnice(4, 15, 60, 11, Map);
+	souradnice(A.B.position[0][0],A.B.position[0][1] , 60, 11, Map);
 	printMap(Map);
 }
