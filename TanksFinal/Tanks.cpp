@@ -36,15 +36,23 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
         x = Ref_x + i;
         a = i * tan(uhel * (M_PI / 180));
         b = 0.5 * g * pow(i / (rychlost * cos(uhel * (M_PI / 180))), 2);
-        c = (Ref_y - (a - b) + 0.5);
+        c = (Ref_y + (a - b) + 0.5);
         y = (int)c;
-        if (pole[y][x] == '*') //dopad na zem
+        if (uhel > 90)
+        {
+            i--;
+        }
+        else
+        {
+            i++;
+        }
+        if (pole[x][y - 1] == '*') //dopad na zem
         {
             Vysl_x = x;
             Vysl_y = y;
             dopad = 1;
         }
-        else if (pole[y][x] == 'A' || pole[y][x] == 'B') // sestreleni tanku (v podstate i sebe sama pri zadani uhlu 90)
+        else if (pole[x][y - 1] == 'A' || pole[x][y - 1] == 'B') // sestreleni tanku (v podstate i sebe sama pri zadani uhlu 90)
         {
             Vysl_x = x;
             Vysl_y = y;
@@ -52,7 +60,7 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
         }
         else
         {
-            pole[y][x] = '.';
+            pole[x][y] = '.';
 
             if (uhel > 90)
             {
@@ -64,10 +72,7 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
             }
 
         }
-
-    }
-
-    while (!dopad);
+    } while (!dopad);
 }
 
 
@@ -164,6 +169,7 @@ void addPlayersToMap(char player, char Map[MAX_Y][MAX_X], int playersPositions[M
 
 }
 void printMap(char Map[MAX_Y][MAX_X]) {
+    //system("cls");
 	for (y = 0; y < MAX_Y; y++) {
 		for (x = 0; x < MAX_X; x++) {
 			printf("%c", Map[y][x]);
@@ -171,5 +177,18 @@ void printMap(char Map[MAX_Y][MAX_X]) {
 		printf("\n");
 	}
 }
+void destroyPlayer(int a, int b, char Map[MAX_Y][MAX_X]) {
+    if (Map[b][a] >= 65 && Map[y][x] <= 69) {
+        Map[b][a] = '\0';
+    }
+}
+void destroyTerrain(int a, int b, char Map[MAX_Y][MAX_X]) {
+    if (Map[b][a] == '*') {
 
+    }
+}//vymysliet algoritmus
+
+void destroy(int a, int b, char Map[MAX_Y][MAX_X]) {
+    destroyPlayer(a, b, Map);
+}
 

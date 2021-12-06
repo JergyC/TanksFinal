@@ -6,14 +6,14 @@ int vybermapy;
 char Map[MAX_Y][MAX_X];
 int playersPositions[MAX_PLAYERS][2];
 
-Player A, B, C, D, E; 
+
 
 void playersDeclaration()
 {
 
 	printf_s("\nVitejte ve hre tanky!");
 
-	//char hrac1[31], hrac2[31], hrac3[31], hrac4[31], hrac5[31];
+	char hrac1[31], hrac2[31], hrac3[31], hrac4[31], hrac5[31];
 a:
 	printf_s("\nZadejte pocet hracu (maximum je 5): ");
 	scanf_s("%d", &pocethracu);
@@ -24,13 +24,9 @@ a:
 		case 2:
 		{
 			printf_s("\nZadejte jmeno prvniho hrace: ");
-			scanf("%30s", &A.meno);
-			printf("Zadaj symbol Tanku prveho hraca: ");
-			scanf("%c", &A.tank);
+			scanf("%30s", &hrac1);
 			printf_s("\nZadejte jmeno druheho hrace: ");
-			scanf("%30s", &B.meno);
-			printf("Zadaj symbol Tanku prveho hraca: ");
-			scanf("%c", &B.tank);
+			scanf("%30s", &hrac2);
 			addPlayersToMap('A', Map, playersPositions);
 			addPlayersToMap('B', Map, playersPositions);
 			break;
@@ -100,6 +96,8 @@ a:
 
 }
 
+
+
 int main() {
 	srand(time(NULL));
 	nadpis();
@@ -107,5 +105,7 @@ int main() {
 	loadMap(Map);
 	playersDeclaration();
 	printMap(Map);
-	//souradnice(4, 15, 45, 10, Map);
+	destroyPlayer(playersPositions[0][0], playersPositions[0][1], Map);
+	printMap(Map);
+	//souradnice(4, 15, 60, 1, Map);
 }
