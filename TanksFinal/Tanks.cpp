@@ -36,7 +36,7 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
         x = Ref_x + i;
         a = i * tan(uhel * (M_PI / 180));
         b = 0.5 * g * pow(i / (rychlost * cos(uhel * (M_PI / 180))), 2);
-        c = (Ref_y + (a - b) + 0.5);
+        c = (Ref_y - (a - b) + 0.5);
         y = (int)c;
         if (uhel > 90)
         {
@@ -46,13 +46,13 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
         {
             i++;
         }
-        if (pole[x][y - 1] == '*') //dopad na zem
+        if (pole[x][y] == '*') //dopad na zem
         {
             Vysl_x = x;
             Vysl_y = y;
             dopad = 1;
         }
-        else if (pole[x][y - 1] == 'A' || pole[x][y - 1] == 'B') // sestreleni tanku (v podstate i sebe sama pri zadani uhlu 90)
+        else if (pole[x][y] == 'A' || pole[x][y] == 'B') // sestreleni tanku (v podstate i sebe sama pri zadani uhlu 90)
         {
             Vysl_x = x;
             Vysl_y = y;
@@ -60,7 +60,7 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
         }
         else
         {
-            pole[x][y] = '.';
+            pole[y][x] = '.';
 
             if (uhel > 90)
             {
@@ -172,6 +172,6 @@ void destroyTerrain(int a, int b, char Map[MAX_Y][MAX_X]) {
 }//vymysliet algoritmus
 
 void destroy(int a, int b, char Map[MAX_Y][MAX_X]) {
-    destroyPlayer(a, b, Map);
+    //destroyPlayer(a, b, Map);
 }
 

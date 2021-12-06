@@ -112,7 +112,8 @@ int main() {
 	loadMap(Map);
 	playersDeclaration();
 	printMap(Map);
-	destroyPlayer(A.A.position[0][0], A.A.position[0][1], Map);
+	//destroyPlayer(A.A.position[0][0], A.A.position[0][1], Map, A);
 	printMap(Map);
-	//souradnice(4, 15, 60, 1, Map);
+	souradnice(4, 15, 60, 11, Map);
+	printMap(Map);
 }

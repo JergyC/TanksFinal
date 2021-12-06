@@ -32,9 +32,9 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
 void nadpis();
 void mapChoice(int mapNumber);
 void loadMap(char Map[MAX_Y][MAX_X]);
-void addPlayersToMap(char player, char Map[MAX_Y][MAX_X], int playersPositions[MAX_PLAYERS][2]);
+void addPlayersToMap(char player, char Map[MAX_Y][MAX_X], int playersPositions[2][2]);
 void printMap(char Map[MAX_Y][MAX_X]);
-void destroyPlayer(int x, int y, char Map[MAX_Y][MAX_X]);
+void destroyPlayer(int x, int y, char Map[MAX_Y][MAX_X], Players A);
 
 
 
