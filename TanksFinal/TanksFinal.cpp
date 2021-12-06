@@ -34,8 +34,10 @@ a:
 			scanf("%30s", &A.A.meno);
 			printf_s("\nZadejte jmeno druheho hrace: ");
 			scanf("%30s", &A.B.meno);
-			addPlayersToMap(A.A.tank, Map, A.A.position, A.A.life);
-			addPlayersToMap(A.B.tank, Map, A.B.position, A.B.life);
+			addPlayersToMap(A.A.tank, Map, A.A.position);
+			A.A.life = 1;
+			addPlayersToMap(A.B.tank, Map, A.B.position);
+			A.B.life = 1;
 			break;
 		}
 		case 3:
@@ -46,9 +48,12 @@ a:
 			scanf("%30s", &A.B.meno);
 			printf_s("\nZadejte jmeno tretiho hrace: ");
 			scanf("%30s", &A.C.meno);
-			addPlayersToMap(A.A.tank, Map, A.A.position, A.A.life);
-			addPlayersToMap(A.B.tank, Map, A.B.position, A.B.life);
-			addPlayersToMap(A.C.tank, Map, A.C.position, A.C.life);
+			addPlayersToMap(A.A.tank, Map, A.A.position);
+			A.A.life = 1;
+			addPlayersToMap(A.B.tank, Map, A.B.position);
+			A.B.life = 1;
+			addPlayersToMap(A.C.tank, Map, A.C.position);
+			A.C.life = 1;
 			break;
 		}
 		case 4:
@@ -61,10 +66,14 @@ a:
 			scanf("%30s", &A.C.meno);
 			printf_s("\nZadejte jmeno ctvrteho hrace: ");
 			scanf("%30s", &A.D.meno);
-			addPlayersToMap(A.A.tank, Map, A.A.position, A.A.life);
-			addPlayersToMap(A.B.tank, Map, A.B.position, A.B.life);
-			addPlayersToMap(A.C.tank, Map, A.C.position, A.C.life);
-			addPlayersToMap(A.D.tank, Map, A.D.position, A.D.life);
+			addPlayersToMap(A.A.tank, Map, A.A.position);
+			A.A.life = 1;
+			addPlayersToMap(A.B.tank, Map, A.B.position);
+			A.B.life = 1;
+			addPlayersToMap(A.C.tank, Map, A.C.position);
+			A.C.life = 1;
+			addPlayersToMap(A.D.tank, Map, A.D.position);
+			A.D.life = 1;
 			break;
 		}
 		case 5:
@@ -79,11 +88,16 @@ a:
 			scanf("%30s", &A.D.meno);
 			printf_s("\nZadejte jmeno pateho hrace: ");
 			scanf("%30s", &A.E.meno);
-			addPlayersToMap(A.A.tank, Map, A.A.position, A.A.life);
-			addPlayersToMap(A.B.tank, Map, A.B.position, A.B.life);
-			addPlayersToMap(A.C.tank, Map, A.C.position, A.C.life);
-			addPlayersToMap(A.D.tank, Map, A.D.position, A.D.life);
-			addPlayersToMap(A.E.tank, Map, A.E.position, A.E.life);
+			addPlayersToMap(A.A.tank, Map, A.A.position);
+			A.A.life = 1;
+			addPlayersToMap(A.B.tank, Map, A.B.position);
+			A.B.life = 1;
+			addPlayersToMap(A.C.tank, Map, A.C.position);
+			A.C.life = 1;
+			addPlayersToMap(A.D.tank, Map, A.D.position);
+			A.D.life = 1;
+			addPlayersToMap(A.E.tank, Map, A.E.position);
+			A.E.life = 1;
 			break;
 		}
 
@@ -103,36 +117,48 @@ a:
 
 }
 void gameCycle() {
+	printMap(Map);
+	loadToDef(Map, DefMap);
 	while (pocethracu > 1) {
 		if (A.A.life == 1) {
 			printf("%s, zadaj uhol strelby: ", A.A.meno);
 			scanf_s("%d", &uhol);
-			souradnice(A.A.position[0][0], A.A.position[0][1], uhol, 11, Map, A, pocethracu);
+			souradnice(A.A.position[0][0], A.A.position[0][1], uhol, VELOCITY, Map, A, pocethracu);
+			printMap(Map);
+			loadToDef(DefMap, Map);
+
 		}
 		if (A.B.life == 1) {
 			printf("%s, zadaj uhol strelby: ", A.B.meno);
 			scanf_s("%d", &uhol);
-			souradnice(A.B.position[0][0], A.B.position[0][1], uhol 11, Map, A, pocethracu);
+			souradnice(A.B.position[0][0], A.B.position[0][1], uhol, VELOCITY, Map, A, pocethracu);
+			printMap(Map);
+			loadToDef(DefMap, Map);
 		}
 		if (A.C.life == 1) {
 			printf("%s, zadaj uhol strelby: ", A.C.meno);
 			scanf_s("%d", &uhol);
-			souradnice(A.C.position[0][0], A.C.position[0][1], uhol, 11, Map, A, pocethracu);
+			souradnice(A.C.position[0][0], A.C.position[0][1], uhol, VELOCITY, Map, A, pocethracu);
+			printMap(Map);
+			loadToDef(DefMap, Map);
 		}
 		if (A.D.life == 1) {
 			printf("%s, zadaj uhol strelby: ", A.D.meno);
 			scanf_s("%d", &uhol);
-			souradnice(A.D.position[0][0], A.D.position[0][1], uhol, 11, Map, A, pocethracu);
+			souradnice(A.D.position[0][0], A.D.position[0][1], uhol, VELOCITY, Map, A, pocethracu);
+			printMap(Map);
+			loadToDef(DefMap, Map);
 		}
 		if (A.E.life == 1) {
 			printf("%s, zadaj uhol strelby: ", A.E.meno);
 			scanf_s("%d", &uhol);
-			souradnice(A.E.position[0][0], A.E.position[0][1], uhol, 11, Map, A, pocethracu);
-		}
+			souradnice(A.E.position[0][0], A.E.position[0][1], uhol, VELOCITY, Map, A, pocethracu);
+			printMap(Map);
+			loadToDef(DefMap, Map);
 
+		}
 	}
 }
-
 
 
 
@@ -142,9 +168,9 @@ int main() {
 	mapChoice(vybermapy);
 	loadMap(Map);
 	playersDeclaration();
-
-	printMap(Map);
+	gameCycle();
+	/*printMap(Map);
 	printMap(Map);
 	souradnice(A.A.position[0][0],A.A.position[0][1] , 60, 11, Map, A, pocethracu);
-	printMap(Map);
+	printMap(Map);*/
 }

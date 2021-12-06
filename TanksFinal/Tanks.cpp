@@ -131,7 +131,7 @@ void loadMap(char Map[MAX_Y][MAX_X]) {
 	}
 	fclose(fr);
 }
-void addPlayersToMap(char player, char Map[MAX_Y][MAX_X], int playersPositions[2][2], int life) {
+void addPlayersToMap(char player, char Map[MAX_Y][MAX_X], int playersPositions[2][2]) {
     int x;
     x = rand() % 50;
     for (y = 0; y < MAX_Y; y++) {
@@ -145,9 +145,16 @@ void addPlayersToMap(char player, char Map[MAX_Y][MAX_X], int playersPositions[2
     }
     playersPositions[0][0] = x; //xova suradnica hraca
     playersPositions[0][1] = y - 1;
-    life = 1;
     
  }
+void loadToDef(char Map[MAX_Y][MAX_X], char Def[MAX_Y][MAX_X])
+{
+    for (y = 0; y < MAX_Y; y++) {
+        for (x = 0; x < MAX_X; x++) {
+            Def[y][x] = Map[y][x];
+        }
+    }
+}
 void printMap(char Map[MAX_Y][MAX_X]) {
     system("cls");
 	for (y = 0; y < MAX_Y; y++) {
