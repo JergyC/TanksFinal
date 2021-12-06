@@ -6,14 +6,20 @@ int vybermapy;
 char Map[MAX_Y][MAX_X];
 int playersPositions[MAX_PLAYERS][2];
 
+Player A, B, C, D, E;
+
 
 
 void playersDeclaration()
 {
-
+	A.tank = 'A';
+	B.tank = 'B';
+	C.tank = 'C';
+	D.tank = 'D';
+	E.tank = 'E';
 	printf_s("\nVitejte ve hre tanky!");
 
-	char hrac1[31], hrac2[31], hrac3[31], hrac4[31], hrac5[31];
+	//char hrac1[31], hrac2[31], hrac3[31], hrac4[31], hrac5[31];
 a:
 	printf_s("\nZadejte pocet hracu (maximum je 5): ");
 	scanf_s("%d", &pocethracu);
@@ -24,59 +30,59 @@ a:
 		case 2:
 		{
 			printf_s("\nZadejte jmeno prvniho hrace: ");
-			scanf("%30s", &hrac1);
+			scanf("%30s", &A.meno);
 			printf_s("\nZadejte jmeno druheho hrace: ");
-			scanf("%30s", &hrac2);
-			addPlayersToMap('A', Map, playersPositions);
-			addPlayersToMap('B', Map, playersPositions);
+			scanf("%30s", &B.meno);
+			addPlayersToMap(A.tank, Map, A.position);
+			addPlayersToMap(B.tank, Map, B.position);
 			break;
 		}
 		case 3:
 		{
 			printf_s("\nZadejte jmeno prvniho hrace: ");
-			scanf("%30s", &hrac1);
+			scanf("%30s", &A.meno);
 			printf_s("\nZadejte jmeno druheho hrace: ");
-			scanf("%30s", &hrac2);
+			scanf("%30s", &B.meno);
 			printf_s("\nZadejte jmeno tretiho hrace: ");
-			scanf("%30s", &hrac3);
-			addPlayersToMap('A', Map, playersPositions);
-			addPlayersToMap('B', Map, playersPositions);
-			addPlayersToMap('C', Map, playersPositions);
+			scanf("%30s", &C.meno);
+			addPlayersToMap(A.tank, Map, A.position);
+			addPlayersToMap(B.tank, Map, B.position);
+			addPlayersToMap(C.tank, Map, C.position);
 			break;
 		}
 		case 4:
 		{
 			printf_s("\nZadejte jmeno prvniho hrace: ");
-			scanf("%30s", &hrac1);
+			scanf("%30s", &A.meno);
 			printf_s("\nZadejte jmeno druheho hrace: ");
-			scanf("%30s", &hrac2);
+			scanf("%30s", &B.meno);
 			printf_s("\nZadejte jmeno tretiho hrace: ");
-			scanf("%30s", &hrac3);
+			scanf("%30s", &C.meno);
 			printf_s("\nZadejte jmeno ctvrteho hrace: ");
-			scanf("%30s", &hrac4);
-			addPlayersToMap('A', Map, playersPositions);
-			addPlayersToMap('B', Map, playersPositions);
-			addPlayersToMap('C', Map, playersPositions);
-			addPlayersToMap('D', Map, playersPositions);
+			scanf("%30s", &D.meno);
+			addPlayersToMap(A.tank, Map, A.position);
+			addPlayersToMap(B.tank, Map, B.position);
+			addPlayersToMap(C.tank, Map, C.position);
+			addPlayersToMap(D.tank, Map, D.position);
 			break;
 		}
 		case 5:
 		{
 			printf_s("\nZadejte jmeno prvniho hrace: ");
-			scanf("%30s", &hrac1);
+			scanf("%30s", &A.meno);
 			printf_s("\nZadejte jmeno druheho hrace: ");
-			scanf("%30s", &hrac2);
+			scanf("%30s", &B.meno);
 			printf_s("\nZadejte jmeno tretiho hrace: ");
-			scanf("%30s", &hrac3);
+			scanf("%30s", &C.meno);
 			printf_s("\nZadejte jmeno ctvrteho hrace: ");
-			scanf("%30s", &hrac4);
+			scanf("%30s", &D.meno);
 			printf_s("\nZadejte jmeno pateho hrace: ");
-			scanf("%30s", &hrac5);
-			addPlayersToMap('A', Map, playersPositions);
-			addPlayersToMap('B', Map, playersPositions);
-			addPlayersToMap('C', Map, playersPositions);
-			addPlayersToMap('D', Map, playersPositions);
-			addPlayersToMap('E', Map, playersPositions);
+			scanf("%30s", &E.meno);
+			addPlayersToMap(A.tank, Map, A.position);
+			addPlayersToMap(B.tank, Map, B.position);
+			addPlayersToMap(C.tank, Map, C.position);
+			addPlayersToMap(D.tank, Map, D.position);
+			addPlayersToMap(E.tank, Map, E.position);
 			break;
 		}
 
@@ -105,7 +111,7 @@ int main() {
 	loadMap(Map);
 	playersDeclaration();
 	printMap(Map);
-	destroyPlayer(playersPositions[0][0], playersPositions[0][1], Map);
+	destroyPlayer(A.position[0][0], A.position[0][1], Map);
 	printMap(Map);
 	//souradnice(4, 15, 60, 1, Map);
 }

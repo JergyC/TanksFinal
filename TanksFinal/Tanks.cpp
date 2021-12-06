@@ -130,7 +130,7 @@ void loadMap(char Map[MAX_Y][MAX_X]) {
 	}
 	fclose(fr);
 }
-void addPlayersToMap(char player, char Map[MAX_Y][MAX_X], int playersPositions[MAX_PLAYERS][2]) {
+void addPlayersToMap(char player, char Map[MAX_Y][MAX_X], int playersPositions[2][2]) {
     int x;
     x = rand() % 50;
     for (y = 0; y < MAX_Y; y++) {
@@ -142,32 +142,10 @@ void addPlayersToMap(char player, char Map[MAX_Y][MAX_X], int playersPositions[M
             break;
         }
     }
-    switch (player) {
-    case 'A':
-        playersPositions[0][0] = x; //xova suradnica hraca
-        playersPositions[0][1] = y - 1; //ylonova suradnica hraca
-        break;
-    case 'B':
-        playersPositions[1][0] = x; //xova suradnica hraca
-        playersPositions[1][1] = y - 1; //ylonova suradnica hraca
-        break;
-    case 'C':
-        playersPositions[2][0] = x; //xova suradnica hraca
-        playersPositions[2][1] = y - 1; //ylonova suradnica hraca
-        break;
-    case 'D':
-        playersPositions[3][0] = x; //xova suradnica hraca
-        playersPositions[3][1] = y - 1; //ylonova suradnica hraca
-        break;
-    case 'E':
-        playersPositions[4][0] = x; //xova suradnica hraca
-        playersPositions[4][1] = y - 1; //ylonova suradnica hraca
-        break;
+    playersPositions[0][0] = x; //xova suradnica hraca
+    playersPositions[0][1] = y - 1; //ylonova suradnica hraca
     
-    }
-
-
-}
+ }
 void printMap(char Map[MAX_Y][MAX_X]) {
     //system("cls");
 	for (y = 0; y < MAX_Y; y++) {

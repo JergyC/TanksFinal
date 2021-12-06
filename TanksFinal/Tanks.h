@@ -14,9 +14,8 @@
 typedef struct Player {
     char meno[31];
     char tank;
-    int position[2];
-    int score;
-};
+    int position[2][2];
+}player;
 
 
 
