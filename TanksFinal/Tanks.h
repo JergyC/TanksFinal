@@ -16,7 +16,7 @@ typedef struct Player {
     char meno[31];
     char tank;
     int position[2][2];
-    int life = 1;
+    int life = 0;
 }player;
 typedef struct Players {
     Player A;
@@ -29,13 +29,13 @@ typedef struct Players {
 
 
 
-void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][MAX_X]);
+void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][MAX_X], Players A, int pocetHracu);
 void nadpis();
 void mapChoice(int mapNumber);
 void loadMap(char Map[MAX_Y][MAX_X]);
-void addPlayersToMap(char player, char Map[MAX_Y][MAX_X], int playersPositions[2][2]);
+void addPlayersToMap(char player, char Map[MAX_Y][MAX_X], int playersPositions[2][2], int life);
 void printMap(char Map[MAX_Y][MAX_X]);
-void destroyPlayer(int x, int y, char Map[MAX_Y][MAX_X], Players A);
+void destroyPlayer(int x, int y, int pocetHracu, char Map[MAX_Y][MAX_X], Players A);
 
 
 

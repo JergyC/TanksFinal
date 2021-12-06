@@ -10,7 +10,7 @@ FILE* fr;
 
 
 
-void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][MAX_X])
+void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][MAX_X], Players A, int pocetHracu)
 {
     float g = 9.81; //tihove zrychleni
     int i;
@@ -57,6 +57,7 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
             Vysl_x = x;
             Vysl_y = y;
             dopad = 1;
+            destroyPlayer(x, y, pocetHracu, pole, A);
         }
         else
         {
@@ -130,7 +131,7 @@ void loadMap(char Map[MAX_Y][MAX_X]) {
 	}
 	fclose(fr);
 }
-void addPlayersToMap(char player, char Map[MAX_Y][MAX_X], int playersPositions[2][2]) {
+void addPlayersToMap(char player, char Map[MAX_Y][MAX_X], int playersPositions[2][2], int life) {
     int x;
     x = rand() % 50;
     for (y = 0; y < MAX_Y; y++) {
@@ -143,11 +144,12 @@ void addPlayersToMap(char player, char Map[MAX_Y][MAX_X], int playersPositions[2
         }
     }
     playersPositions[0][0] = x; //xova suradnica hraca
-    playersPositions[0][1] = y - 1; //ylonova suradnica hraca
+    playersPositions[0][1] = y - 1;
+    life = 1;
     
  }
 void printMap(char Map[MAX_Y][MAX_X]) {
-    //system("cls");
+    system("cls");
 	for (y = 0; y < MAX_Y; y++) {
 		for (x = 0; x < MAX_X; x++) {
 			printf("%c", Map[y][x]);
@@ -155,13 +157,29 @@ void printMap(char Map[MAX_Y][MAX_X]) {
 		printf("\n");
 	}
 }
-void destroyPlayer(int a, int b, char Map[MAX_Y][MAX_X], Players A) {
+void destroyPlayer(int a, int b,  int pocetHracu, char Map[MAX_Y][MAX_X], Players A) {
     if (Map[b][a] >= 65 && Map[b][a] <= 69) {
         switch (Map[b][a]) {
             case 'A':
                 A.A.life = 0;
+                break;
+            case 'B':
+                A.B.life = 0;
+                break;
+            case 'C':
+                A.C.life = 0;
+                break;
+            case 'D':
+                A.D.life = 0;
+                break;
+            case 'E':
+                A.E.life = 0;
+                break;
         }
         Map[b][a] = '\0';
+        pocetHracu--;
+
+
         //pocetHracov--;
     }//dokoncit Destroy
 }

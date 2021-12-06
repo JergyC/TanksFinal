@@ -4,8 +4,8 @@
 int pocethracu;
 int vybermapy;
 char Map[MAX_Y][MAX_X];
-int playersPositions[MAX_PLAYERS][2];
-char destroyedPlayer;
+char DefMap[MAX_Y][MAX_X];
+int uhol;
 
 Players A;
 
@@ -34,8 +34,8 @@ a:
 			scanf("%30s", &A.A.meno);
 			printf_s("\nZadejte jmeno druheho hrace: ");
 			scanf("%30s", &A.B.meno);
-			addPlayersToMap(A.A.tank, Map, A.A.position);
-			addPlayersToMap(A.B.tank, Map, A.B.position);
+			addPlayersToMap(A.A.tank, Map, A.A.position, A.A.life);
+			addPlayersToMap(A.B.tank, Map, A.B.position, A.B.life);
 			break;
 		}
 		case 3:
@@ -46,9 +46,9 @@ a:
 			scanf("%30s", &A.B.meno);
 			printf_s("\nZadejte jmeno tretiho hrace: ");
 			scanf("%30s", &A.C.meno);
-			addPlayersToMap(A.A.tank, Map, A.A.position);
-			addPlayersToMap(A.B.tank, Map, A.B.position);
-			addPlayersToMap(A.C.tank, Map, A.C.position);
+			addPlayersToMap(A.A.tank, Map, A.A.position, A.A.life);
+			addPlayersToMap(A.B.tank, Map, A.B.position, A.B.life);
+			addPlayersToMap(A.C.tank, Map, A.C.position, A.C.life);
 			break;
 		}
 		case 4:
@@ -61,10 +61,10 @@ a:
 			scanf("%30s", &A.C.meno);
 			printf_s("\nZadejte jmeno ctvrteho hrace: ");
 			scanf("%30s", &A.D.meno);
-			addPlayersToMap(A.A.tank, Map, A.A.position);
-			addPlayersToMap(A.B.tank, Map, A.B.position);
-			addPlayersToMap(A.C.tank, Map, A.C.position);
-			addPlayersToMap(A.D.tank, Map, A.D.position);
+			addPlayersToMap(A.A.tank, Map, A.A.position, A.A.life);
+			addPlayersToMap(A.B.tank, Map, A.B.position, A.B.life);
+			addPlayersToMap(A.C.tank, Map, A.C.position, A.C.life);
+			addPlayersToMap(A.D.tank, Map, A.D.position, A.D.life);
 			break;
 		}
 		case 5:
@@ -79,11 +79,11 @@ a:
 			scanf("%30s", &A.D.meno);
 			printf_s("\nZadejte jmeno pateho hrace: ");
 			scanf("%30s", &A.E.meno);
-			addPlayersToMap(A.A.tank, Map, A.A.position);
-			addPlayersToMap(A.B.tank, Map, A.B.position);
-			addPlayersToMap(A.C.tank, Map, A.C.position);
-			addPlayersToMap(A.D.tank, Map, A.D.position);
-			addPlayersToMap(A.E.tank, Map, A.E.position);
+			addPlayersToMap(A.A.tank, Map, A.A.position, A.A.life);
+			addPlayersToMap(A.B.tank, Map, A.B.position, A.B.life);
+			addPlayersToMap(A.C.tank, Map, A.C.position, A.C.life);
+			addPlayersToMap(A.D.tank, Map, A.D.position, A.D.life);
+			addPlayersToMap(A.E.tank, Map, A.E.position, A.E.life);
 			break;
 		}
 
@@ -102,6 +102,37 @@ a:
 	}
 
 }
+void gameCycle() {
+	while (pocethracu > 1) {
+		if (A.A.life == 1) {
+			printf("%s, zadaj uhol strelby: ", A.A.meno);
+			scanf_s("%d", &uhol);
+			souradnice(A.A.position[0][0], A.A.position[0][1], uhol, 11, Map, A, pocethracu);
+		}
+		if (A.B.life == 1) {
+			printf("%s, zadaj uhol strelby: ", A.B.meno);
+			scanf_s("%d", &uhol);
+			souradnice(A.B.position[0][0], A.B.position[0][1], uhol 11, Map, A, pocethracu);
+		}
+		if (A.C.life == 1) {
+			printf("%s, zadaj uhol strelby: ", A.C.meno);
+			scanf_s("%d", &uhol);
+			souradnice(A.C.position[0][0], A.C.position[0][1], uhol, 11, Map, A, pocethracu);
+		}
+		if (A.D.life == 1) {
+			printf("%s, zadaj uhol strelby: ", A.D.meno);
+			scanf_s("%d", &uhol);
+			souradnice(A.D.position[0][0], A.D.position[0][1], uhol, 11, Map, A, pocethracu);
+		}
+		if (A.E.life == 1) {
+			printf("%s, zadaj uhol strelby: ", A.E.meno);
+			scanf_s("%d", &uhol);
+			souradnice(A.E.position[0][0], A.E.position[0][1], uhol, 11, Map, A, pocethracu);
+		}
+
+	}
+}
+
 
 
 
@@ -111,9 +142,9 @@ int main() {
 	mapChoice(vybermapy);
 	loadMap(Map);
 	playersDeclaration();
+
 	printMap(Map);
-	//destroyPlayer(A.A.position[0][0], A.A.position[0][1], Map, A);
 	printMap(Map);
-	souradnice(A.A.position[0][0],A.A.position[0][1] , 60, 11, Map);
+	souradnice(A.A.position[0][0],A.A.position[0][1] , 60, 11, Map, A, pocethracu);
 	printMap(Map);
 }
