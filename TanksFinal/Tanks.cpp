@@ -52,7 +52,7 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
             Vysl_y = y;
             dopad = 1;
         }
-        else if (pole[y][x] == 'A' || pole[y][x] == 'B') // sestreleni tanku (v podstate i sebe sama pri zadani uhlu 90)
+        else if (pole[y][x] >= 65 && pole[y][x] <= 69) // sestreleni tanku (v podstate i sebe sama pri zadani uhlu 90)
         {
             Vysl_x = x;
             Vysl_y = y;
