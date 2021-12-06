@@ -15,7 +15,16 @@ typedef struct Player {
     char meno[31];
     char tank;
     int position[2][2];
+    int life = 1;
 }player;
+typedef struct Players {
+    Player A;
+    Player B;
+    Player C;
+    Player D; 
+    Player E;
+}players;
+
 
 
 

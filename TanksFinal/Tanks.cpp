@@ -156,8 +156,9 @@ void printMap(char Map[MAX_Y][MAX_X]) {
 	}
 }
 void destroyPlayer(int a, int b, char Map[MAX_Y][MAX_X]) {
-    if (Map[b][a] >= 65 && Map[y][x] <= 69) {
+    if (Map[b][a] >= 65 && Map[b][a] <= 69) {
         Map[b][a] = '\0';
+        //pocetHracov--;
     }
 }
 void destroyTerrain(int a, int b, char Map[MAX_Y][MAX_X]) {
