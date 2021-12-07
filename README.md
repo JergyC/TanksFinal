@@ -8,7 +8,9 @@ Tvorcovia:
 
 
 Neboli fixnute vsetky bugy, vopred sa ospravedlnujeme.
-Na ich odstraneni budeme pracovat v buducnosti.
+Na ich odstraneni budem pracovat v buducnosti.
+
+Implementacia nicenia terenu bude dokoncena v blizkej dobe.
 
 Verzia BETA 1.0.
 
