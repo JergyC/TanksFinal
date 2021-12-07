@@ -51,8 +51,8 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
             printf("Vystrelil si mimo pole!\n");
         }
         else if (y >= MAX_Y) {
-            y = MAX_Y - 1;
             printf("Vystrelil si mimo pole!\n");
+            break;
         }
         if (x >= MAX_X || x <= 0) {
             x = 0;
@@ -64,6 +64,7 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
             Vysl_x = x;
             Vysl_y = y;
             dopad = 1;
+            destroyTerrain(x, y, pole);
         }
         else if (pole[y][x] >= 65 && pole[y][x] <= 69) // sestreleni tanku (v podstate i sebe sama pri zadani uhlu 90)
         {
@@ -205,7 +206,7 @@ void destroyPlayer(int a, int b,  int pocetHracu, char Map[MAX_Y][MAX_X], Player
 }
 void destroyTerrain(int a, int b, char Map[MAX_Y][MAX_X]) {
     if (Map[b][a] == '*') {
-
+        Map[b][a] = '\0';
     }
 }//vymysliet algoritmus
 
