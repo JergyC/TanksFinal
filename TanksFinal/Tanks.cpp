@@ -194,7 +194,7 @@ void destroyPlayer(int a, int b,  int *pocetHracu, char Map[MAX_Y][MAX_X], Playe
                 break;
         }
         Map[b][a] = '\0';
-        pocetHracu--;
+        *pocetHracu = *pocetHracu - 1;
 
 }
 //void destroyTerrain(int a, int b, char Map[MAX_Y][MAX_X]) {
@@ -202,6 +202,7 @@ void destroyPlayer(int a, int b,  int *pocetHracu, char Map[MAX_Y][MAX_X], Playe
 //}//vymysliet algoritmus
 void win() {
     system("cls");
-    printf("Koniec hry. \nDufame, ze ste si nasu hru uzili. \nGratulujeme vitazovi");
+    printf("Koniec hry. \nDufame, ze ste si nasu hru uzili. \nGratulujeme vitazovi\n\n\n\n\n");
 }
+
 

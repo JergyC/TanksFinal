@@ -132,9 +132,13 @@ void gameCycle() {
 				printf("Maximalna rychlost je 20");
 				velocity = MAX_VEL;
 			}
-			souradnice(A.A.position[0][0], A.A.position[0][1], uhol, velocity, Map, A, &pocethracu);
+			//souradnice(A.A.position[0][0], A.A.position[0][1], uhol, velocity, Map, A, &pocethracu);
+			destroyPlayer(A.A.position[0][0], A.A.position[0][1], &pocethracu, Map, A);
 			printMap(Map);
 			loadToDef(DefMap, Map);
+			if (pocethracu == 1) {
+				break;
+			}
 
 		}
 		if (A.B.life == 1) {
@@ -153,6 +157,9 @@ void gameCycle() {
 			souradnice(A.B.position[0][0], A.B.position[0][1], uhol, velocity, Map, A, &pocethracu);
 			printMap(Map);
 			loadToDef(DefMap, Map);
+			if (pocethracu == 1) {
+				break;
+			}
 		}
 		if (A.C.life == 1) {
 			printf("%s, zadaj uhol strelby: ", A.C.meno);
@@ -170,6 +177,9 @@ void gameCycle() {
 			souradnice(A.C.position[0][0], A.C.position[0][1], uhol, velocity, Map, A, &pocethracu);
 			printMap(Map);
 			loadToDef(DefMap, Map);
+			if (pocethracu == 1) {
+				break;
+			}
 		}
 		if (A.D.life == 1) {
 			printf("%s, zadaj uhol strelby: ", A.D.meno);
@@ -187,6 +197,9 @@ void gameCycle() {
 			souradnice(A.D.position[0][0], A.D.position[0][1], uhol, velocity, Map, A, &pocethracu);
 			printMap(Map);
 			loadToDef(DefMap, Map);
+			if (pocethracu == 1) {
+				break;
+			}
 		}
 		if (A.E.life == 1) {
 			printf("%s, zadaj uhol strelby: ", A.E.meno);
@@ -204,6 +217,9 @@ void gameCycle() {
 			souradnice(A.E.position[0][0], A.E.position[0][1], uhol, velocity, Map, A, &pocethracu);
 			printMap(Map);
 			loadToDef(DefMap, Map);
+			if (pocethracu == 1) {
+				break;
+			}
 
 		}
 	}
