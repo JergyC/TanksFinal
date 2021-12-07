@@ -19,8 +19,6 @@ void playersDeclaration()
 	A.D.tank = 'D';
 	A.E.tank = 'E';
 
-	printf_s("\nVitejte ve hre tanky!");
-
 	//char hrac1[31], hrac2[31], hrac3[31], hrac4[31], hrac5[31];
 a:
 	printf_s("\nZadejte pocet hracu (maximum je 5): ");
@@ -220,4 +218,5 @@ int main() {
 	loadMap(Map);
 	playersDeclaration();
 	gameCycle();
+	win();
 }

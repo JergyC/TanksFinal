@@ -53,7 +53,6 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
             break;
         }
         if (x >= MAX_X || x <= 0) {
-            x = 0;
             break;
         }
         if (pole[y][x] == '*') //dopad na zem
@@ -61,7 +60,7 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
             Vysl_x = x;
             Vysl_y = y;
             dopad = 1;
-            destroyTerrain(x, y, pole);
+            //destroyTerrain(x, y, pole);
         }
         else if (pole[y][x] >= 65 && pole[y][x] <= 69) // sestreleni tanku (v podstate i sebe sama pri zadani uhlu 90)
         {
@@ -103,6 +102,7 @@ void nadpis()
 void mapChoice(int vybermapy) {
     system("cls");
     nadpis();
+    printf_s("\nVitejte ve hre tanky!");
     printf_s("\nMate moznost vybrat si z peti hernich map.\n");
 b:
     printf_s("Zadejte prosim cislo mapy (1-5): ");
@@ -197,13 +197,11 @@ void destroyPlayer(int a, int b,  int *pocetHracu, char Map[MAX_Y][MAX_X], Playe
         pocetHracu--;
 
 }
-void destroyTerrain(int a, int b, char Map[MAX_Y][MAX_X]) {
-    if (Map[b][a] == '*') {
-        Map[b][a] = '\0';
-    }
-}//vymysliet algoritmus
-
-void destroy(int a, int b, char Map[MAX_Y][MAX_X]) {
-    //destroyPlayer(a, b, Map);
+//void destroyTerrain(int a, int b, char Map[MAX_Y][MAX_X]) {
+        //Map[b][a] = ' ';
+//}//vymysliet algoritmus
+void win() {
+    system("cls");
+    printf("Koniec hry. \nDufame, ze ste si nasu hru uzili. \nGratulujeme vitazovi");
 }
 

@@ -10,7 +10,7 @@
 #define MAX_X 200
 #define MAX_Y 50
 #define MAX_PLAYERS 5
-#define MAX_VEL 30
+#define MAX_VEL 40
 
 typedef struct Player {
     char meno[31];
@@ -38,6 +38,7 @@ void loadToDef(char Map[MAX_Y][MAX_X], char Def[MAX_Y][MAX_X]);
 void printMap(char Map[MAX_Y][MAX_X]);
 void destroyPlayer(int x, int y, int *pocetHracu, char Map[MAX_Y][MAX_X], Players A);
 void destroyTerrain(int a, int b, char Map[MAX_Y][MAX_X]);
+void win();
 
 
 
