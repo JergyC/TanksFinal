@@ -169,8 +169,4 @@ int main() {
 	loadMap(Map);
 	playersDeclaration();
 	gameCycle();
-	/*printMap(Map);
-	printMap(Map);
-	souradnice(A.A.position[0][0],A.A.position[0][1] , 60, 11, Map, A, pocethracu);
-	printMap(Map);*/
 }

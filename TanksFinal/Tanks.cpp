@@ -46,6 +46,19 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
         {
             i++;
         }
+        if (y <= 0) {
+            y = 0;
+            printf("Vystrelil si mimo pole!\n");
+        }
+        else if (y >= MAX_Y) {
+            y = MAX_Y - 1;
+            printf("Vystrelil si mimo pole!\n");
+        }
+        if (x >= MAX_X || x <= 0) {
+            x = 0;
+            printf("Vystrelil si mimo pole!\n");
+            break;
+        }
         if (pole[y][x] == '*') //dopad na zem
         {
             Vysl_x = x;
