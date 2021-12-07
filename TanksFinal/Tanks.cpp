@@ -179,7 +179,6 @@ void printMap(char Map[MAX_Y][MAX_X]) {
 	}
 }
 void destroyPlayer(int a, int b,  int pocetHracu, char Map[MAX_Y][MAX_X], Players A) {
-    if (Map[b][a] >= 65 && Map[b][a] <= 69) {
         switch (Map[b][a]) {
             case 'A':
                 A.A.life = 0;
@@ -200,9 +199,6 @@ void destroyPlayer(int a, int b,  int pocetHracu, char Map[MAX_Y][MAX_X], Player
         Map[b][a] = '\0';
         pocetHracu--;
 
-
-        //pocetHracov--;
-    }//dokoncit Destroy
 }
 void destroyTerrain(int a, int b, char Map[MAX_Y][MAX_X]) {
     if (Map[b][a] == '*') {

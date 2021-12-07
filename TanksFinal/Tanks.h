@@ -7,10 +7,9 @@
 #pragma once
 
 
-#define MAX_X 100
-#define MAX_Y 20
-#define MAX_PLAYERS 5
-#define VELOCITY 11 
+#define MAX_X 200
+#define MAX_Y 50
+#define MAX_PLAYERS 5 
 
 typedef struct Player {
     char meno[31];

@@ -146,8 +146,11 @@
     <ClInclude Include="Tanks.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Map1.txt" />
+    <Text Include="Map5.txt" />
+    <Text Include="Map4.txt" />
+    <Text Include="Map3.txt" />
     <Text Include="Map2.txt" />
+    <Text Include="Map1.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
