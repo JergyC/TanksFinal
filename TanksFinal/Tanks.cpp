@@ -55,12 +55,12 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
         if (x >= MAX_X || x <= 0) {
             break;
         }
+        dopad_str(uhel, pole, x, y, &x, &y);
         if (pole[y][x] == '*') //dopad na zem
         {
             Vysl_x = x;
             Vysl_y = y;
             dopad = 1;
-            dopad_str(uhel, pole, Vysl_x, Vysl_y, &x, &y);
             destroyTerrain(x, y, pole);
         }
         else if (pole[y][x] >= 65 && pole[y][x] <= 69) // sestreleni tanku (v podstate i sebe sama pri zadani uhlu 90)
@@ -68,7 +68,6 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
             Vysl_x = x;
             Vysl_y = y;
             dopad = 1;
-            dopad_str(uhel, pole, Vysl_x, Vysl_y, &x, &y);
             destroyPlayer(x, y, pocetHracu, pole, A);
         }
         else
