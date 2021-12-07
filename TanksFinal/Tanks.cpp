@@ -60,13 +60,15 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
             Vysl_x = x;
             Vysl_y = y;
             dopad = 1;
-            //destroyTerrain(x, y, pole);
+            dopad_str(uhel, pole, Vysl_x, Vysl_y, &x, &y);
+            destroyTerrain(x, y, pole);
         }
         else if (pole[y][x] >= 65 && pole[y][x] <= 69) // sestreleni tanku (v podstate i sebe sama pri zadani uhlu 90)
         {
             Vysl_x = x;
             Vysl_y = y;
             dopad = 1;
+            dopad_str(uhel, pole, Vysl_x, Vysl_y, &x, &y);
             destroyPlayer(x, y, pocetHracu, pole, A);
         }
         else
@@ -197,12 +199,69 @@ void destroyPlayer(int a, int b,  int *pocetHracu, char Map[MAX_Y][MAX_X], Playe
         *pocetHracu = *pocetHracu - 1;
 
 }
-//void destroyTerrain(int a, int b, char Map[MAX_Y][MAX_X]) {
-        //Map[b][a] = ' ';
-//}//vymysliet algoritmus
+void destroyTerrain(int a, int b, char Map[MAX_Y][MAX_X]) {
+        Map[b][a] = ' ';
+}//vymysliet algoritmus
 void win() {
     system("cls");
     printf("Koniec hry. \nDufame, ze ste si nasu hru uzili. \nGratulujeme vitazovi\n\n\n\n\n");
 }
+void dopad_str(int uhel, char pole[MAX_Y][MAX_X], int dopadX, int dopadY, int* povrchX, int* povrchY)
+{
+    int i = 1;
+    int x = dopadX;
+    int y = dopadY;
+    //int* povrchX = 0, * povrchY = 0;
+
+    if (uhel <= 45)
+    {
+        while (pole[y - 1][x - 1] != ' ')
+        {
+            x--;
+            y--;
+        }
+        *povrchX = x;
+        *povrchY = y;
+    }
+    else if (uhel > 45 && uhel < 90)
+    {
+        while (pole[y - 1][x - 1] != ' ')
+        {
+            y--;
+            if (i % 2 != 0)
+            {
+                x--;
+            }
+            i++;
+        }
+        *povrchX = x;
+        *povrchY = y;
+    }
+    else if (uhel > 90 && uhel < 135)
+    {
+        while (pole[y + 1][x - 1] != ' ')
+        {
+            y--;
+            if (i % 2 != 0)
+            {
+                x++;
+            }
+            i++;
+        }
+        *povrchX = x;
+        *povrchY = y;
+    }
+    else
+    {
+        while (pole[y + 1][x - 1] != ' ')
+        {
+            x++;
+            y--;
+        }
+        *povrchX = x;
+        *povrchY = y;
+    }
+}
+
 
 

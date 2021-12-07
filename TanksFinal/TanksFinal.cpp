@@ -132,8 +132,8 @@ void gameCycle() {
 				printf("Maximalna rychlost je 20");
 				velocity = MAX_VEL;
 			}
-			//souradnice(A.A.position[0][0], A.A.position[0][1], uhol, velocity, Map, A, &pocethracu);
-			destroyPlayer(A.A.position[0][0], A.A.position[0][1], &pocethracu, Map, A);
+			souradnice(A.A.position[0][0], A.A.position[0][1], uhol, velocity, Map, A, &pocethracu);
+			//destroyPlayer(A.A.position[0][0], A.A.position[0][1], &pocethracu, Map, A);
 			printMap(Map);
 			loadToDef(DefMap, Map);
 			if (pocethracu == 1) {
