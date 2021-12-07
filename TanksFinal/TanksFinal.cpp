@@ -124,13 +124,17 @@ void gameCycle() {
 		if (A.A.life == 1) {
 			printf("%s, zadaj uhol strelby: ", A.A.meno);
 			scanf_s("%d", &uhol);
+			while (uhol == 90) {
+				printf("\nNeplatny uhol, nemozes zostrelit sam seba! Novy uhol: ");
+				scanf_s("%d", &uhol);
+			}
 			printf("\n%s, zadaj rychlost strelby: ", A.A.meno);
 			scanf_s("%d", &velocity);
-			if (velocity > 20) {
+			if (velocity > MAX_VEL) {
 				printf("Maximalna rychlost je 20");
-				velocity = 20;
+				velocity = MAX_VEL;
 			}
-			souradnice(A.A.position[0][0], A.A.position[0][1], uhol, velocity, Map, A, pocethracu);
+			souradnice(A.A.position[0][0], A.A.position[0][1], uhol, velocity, Map, A, &pocethracu);
 			printMap(Map);
 			loadToDef(DefMap, Map);
 
@@ -138,52 +142,68 @@ void gameCycle() {
 		if (A.B.life == 1) {
 			printf("%s, zadaj uhol strelby: ", A.B.meno);
 			scanf_s("%d", &uhol);
+			while (uhol == 90) {
+				printf("\nNeplatny uhol, nemozes zostrelit sam seba! Novy uhol: ");
+				scanf_s("%d", &uhol);
+			}
 			printf("\n%s, zadaj rychlost strelby: ", A.B.meno);
 			scanf_s("%d", &velocity);
-			if (velocity > 20) {
+			if (velocity > MAX_VEL) {
 				printf("Maximalna rychlost je 20");
-				velocity = 20;
+				velocity = MAX_VEL;
 			}
-			souradnice(A.B.position[0][0], A.B.position[0][1], uhol, velocity, Map, A, pocethracu);
+			souradnice(A.B.position[0][0], A.B.position[0][1], uhol, velocity, Map, A, &pocethracu);
 			printMap(Map);
 			loadToDef(DefMap, Map);
 		}
 		if (A.C.life == 1) {
 			printf("%s, zadaj uhol strelby: ", A.C.meno);
 			scanf_s("%d", &uhol);
+			while (uhol == 90) {
+				printf("\nNeplatny uhol, nemozes zostrelit sam seba! Novy uhol: ");
+				scanf_s("%d", &uhol);
+			}
 			printf("\n%s, zadaj rychlost strelby: ", A.C.meno);
 			scanf_s("%d", &velocity);
-			if (velocity > 20) {
+			if (velocity > MAX_VEL) {
 				printf("Maximalna rychlost je 20");
-				velocity = 20;
+				velocity = MAX_VEL;
 			}
-			souradnice(A.C.position[0][0], A.C.position[0][1], uhol, velocity, Map, A, pocethracu);
+			souradnice(A.C.position[0][0], A.C.position[0][1], uhol, velocity, Map, A, &pocethracu);
 			printMap(Map);
 			loadToDef(DefMap, Map);
 		}
 		if (A.D.life == 1) {
 			printf("%s, zadaj uhol strelby: ", A.D.meno);
 			scanf_s("%d", &uhol);
+			while(uhol == 90) {
+				printf("\nNeplatny uhol, nemozes zostrelit sam seba! Novy uhol: ");
+				scanf_s("%d", &uhol);
+			}
 			printf("\n%s, zadaj rychlost strelby: ", A.D.meno);
 			scanf_s("%d", &velocity);
-			if (velocity > 20) {
+			if (velocity > MAX_VEL) {
 				printf("Maximalna rychlost je 20");
-				velocity = 20;
+				velocity = MAX_VEL;
 			}
-			souradnice(A.D.position[0][0], A.D.position[0][1], uhol, velocity, Map, A, pocethracu);
+			souradnice(A.D.position[0][0], A.D.position[0][1], uhol, velocity, Map, A, &pocethracu);
 			printMap(Map);
 			loadToDef(DefMap, Map);
 		}
 		if (A.E.life == 1) {
 			printf("%s, zadaj uhol strelby: ", A.E.meno);
 			scanf_s("%d", &uhol);
+			while(uhol == 90) {
+				printf("\nNeplatny uhol, nemozes zostrelit sam seba! Novy uhol: ");
+				scanf_s("%d", &uhol);
+			}
 			printf("\n%s, zadaj rychlost strelby: ", A.E.meno);
 			scanf_s("%d", &velocity);
-			if (velocity > 20) {
+			if (velocity > MAX_VEL) {
 				printf("Maximalna rychlost je 20");
-				velocity = 20;
+				velocity = MAX_VEL;
 			}
-			souradnice(A.E.position[0][0], A.E.position[0][1], uhol, velocity, Map, A, pocethracu);
+			souradnice(A.E.position[0][0], A.E.position[0][1], uhol, velocity, Map, A, &pocethracu);
 			printMap(Map);
 			loadToDef(DefMap, Map);
 

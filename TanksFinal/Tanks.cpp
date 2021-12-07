@@ -10,7 +10,7 @@ FILE* fr;
 
 
 
-void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][MAX_X], Players A, int pocetHracu)
+void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][MAX_X], Players A, int *pocetHracu)
 {
     float g = 9.81; //tihove zrychleni
     int i;
@@ -48,15 +48,12 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
         }
         if (y <= 0) {
             y = 0;
-            printf("Vystrelil si mimo pole!\n");
         }
         else if (y >= MAX_Y) {
-            printf("Vystrelil si mimo pole!\n");
             break;
         }
         if (x >= MAX_X || x <= 0) {
             x = 0;
-            printf("Vystrelil si mimo pole!\n");
             break;
         }
         if (pole[y][x] == '*') //dopad na zem
@@ -178,7 +175,7 @@ void printMap(char Map[MAX_Y][MAX_X]) {
 		printf("\n");
 	}
 }
-void destroyPlayer(int a, int b,  int pocetHracu, char Map[MAX_Y][MAX_X], Players A) {
+void destroyPlayer(int a, int b,  int *pocetHracu, char Map[MAX_Y][MAX_X], Players A) {
         switch (Map[b][a]) {
             case 'A':
                 A.A.life = 0;
