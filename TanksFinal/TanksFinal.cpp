@@ -137,8 +137,10 @@ void gameCycle() {
 				velocity = MAX_VEL;
 			}
 			souradnice(A.A.position[0][0], A.A.position[0][1], uhol, velocity, Map, A, &pocethracu);
-			destroyPlayer(A.A.position[0][0], A.A.position[0][1], &pocethracu, Map, pa);
+			//destroyPlayer(A.A.position[0][0], A.A.position[0][1], &pocethracu, Map, pa);
 			printMap(Map);
+			countersouradnice(A.A.position[0][0], A.A.position[0][1], uhol, velocity, Map);
+			loadToDef(Map, DefMap);
 			loadToDef(DefMap, Map);
 			if (pocethracu == 1) {
 				break;
@@ -159,6 +161,8 @@ void gameCycle() {
 			}
 			souradnice(A.B.position[0][0], A.B.position[0][1], uhol, velocity, Map, A, &pocethracu);
 			printMap(Map);
+			countersouradnice(A.B.position[0][0], A.B.position[0][1], uhol, velocity, Map);
+			loadToDef(Map, DefMap);
 			loadToDef(DefMap, Map);
 			if (pocethracu == 1) {
 				break;
@@ -179,6 +183,8 @@ void gameCycle() {
 			}
 			souradnice(A.C.position[0][0], A.C.position[0][1], uhol, velocity, Map, A, &pocethracu);
 			printMap(Map);
+			countersouradnice(A.C.position[0][0], A.C.position[0][1], uhol, velocity, Map);
+			loadToDef(Map, DefMap);
 			loadToDef(DefMap, Map);
 			if (pocethracu == 1) {
 				break;
@@ -199,6 +205,8 @@ void gameCycle() {
 			}
 			souradnice(A.D.position[0][0], A.D.position[0][1], uhol, velocity, Map, A, &pocethracu);
 			printMap(Map);
+			countersouradnice(A.D.position[0][0], A.D.position[0][1], uhol, velocity, Map);
+			loadToDef(Map, DefMap);
 			loadToDef(DefMap, Map);
 			if (pocethracu == 1) {
 				break;
@@ -219,6 +227,8 @@ void gameCycle() {
 			}
 			souradnice(A.E.position[0][0], A.E.position[0][1], uhol, velocity, Map, A, &pocethracu);
 			printMap(Map);
+			countersouradnice(A.E.position[0][0], A.E.position[0][1], uhol, velocity, Map);
+			loadToDef(Map, DefMap);
 			loadToDef(DefMap, Map);
 			if (pocethracu == 1) {
 				break;

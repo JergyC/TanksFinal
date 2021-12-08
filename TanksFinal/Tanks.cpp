@@ -89,7 +89,74 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
     } while (!dopad);
 }
 
+void countersouradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][MAX_X])
+{
+    float g = 9.81; //tihove zrychleni
+    int i;
+    if (uhel > 90)
+    {
+        i = -1;
+    }
+    else
+    {
+        i = 1;
+    }
+    int dopad = 0;
+    int Vysl_x;
+    int Vysl_y;
+    int x;
+    int y;
+    double a; //clen souradnice y
+    double b; // clen souradnice y
+    double c; // souradnice y pred zaokrouhlenim
 
+    do
+    {
+        x = Ref_x + i;
+        a = i * tan(uhel * (M_PI / 180));
+        b = 0.5 * g * pow(i / (rychlost * cos(uhel * (M_PI / 180))), 2);
+        c = (Ref_y - (a - b) + 0.5);
+        y = (int)c;
+        if (uhel > 90)
+        {
+            i--;
+        }
+        else
+        {
+            i++;
+        }
+        if (y <= 0) {
+            y = 0;
+        }
+        else if (y >= MAX_Y) {
+            break;
+        }
+        if (x >= MAX_X || x <= 0) {
+            break;
+        }
+        dopad_str(uhel, pole, x, y, &x, &y);
+        if (pole[y][x] == '*') //dopad na zem
+        {
+            Vysl_x = x;
+            Vysl_y = y;
+            dopad = 1;
+        }
+        else
+        {
+            pole[y][x] = ' ';
+
+            if (uhel > 90)
+            {
+                i--;
+            }
+            else
+            {
+                i++;
+            }
+
+        }
+    } while (!dopad);
+}
 
 void nadpis()
 {
