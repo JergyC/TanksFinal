@@ -12,6 +12,8 @@ FILE* fr;
 
 void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][MAX_X], Players A, int *pocetHracu)
 {
+    players* pa;
+    pa = &A;
     float g = 9.81; //tihove zrychleni
     int i;
     if (uhel > 90)
@@ -68,7 +70,7 @@ void souradnice(int Ref_x, int Ref_y, int uhel, int rychlost, char pole[MAX_Y][M
             Vysl_x = x;
             Vysl_y = y;
             dopad = 1;
-            destroyPlayer(x, y, pocetHracu, pole, A);
+            destroyPlayer(x, y, pocetHracu, pole, pa);
         }
         else
         {
@@ -176,22 +178,23 @@ void printMap(char Map[MAX_Y][MAX_X]) {
 		printf("\n");
 	}
 }
-void destroyPlayer(int a, int b,  int *pocetHracu, char Map[MAX_Y][MAX_X], Players A) {
-        switch (Map[b][a]) {
+void destroyPlayer(int a, int b,  int *pocetHracu, char Map[MAX_Y][MAX_X], struct Players *A) {
+
+    switch (Map[b][a]) {
             case 'A':
-                A.A.life = 0;
+                A->A.life = 0;
                 break;
             case 'B':
-                A.B.life = 0;
+                A->B.life = 0;
                 break;
             case 'C':
-                A.C.life = 0;
+                A->C.life = 0;
                 break;
             case 'D':
-                A.D.life = 0;
+                A->D.life = 0;
                 break;
             case 'E':
-                A.E.life = 0;
+                A->E.life = 0;
                 break;
         }
         Map[b][a] = '\0';
@@ -261,6 +264,3 @@ void dopad_str(int uhel, char pole[MAX_Y][MAX_X], int dopadX, int dopadY, int* p
         *povrchY = y;
     }
 }
-
-
-

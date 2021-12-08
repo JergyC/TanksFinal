@@ -36,7 +36,7 @@ void loadMap(char Map[MAX_Y][MAX_X]);
 void addPlayersToMap(char player, char Map[MAX_Y][MAX_X], int playersPositions[2][2]);
 void loadToDef(char Map[MAX_Y][MAX_X], char Def[MAX_Y][MAX_X]);
 void printMap(char Map[MAX_Y][MAX_X]);
-void destroyPlayer(int x, int y, int *pocetHracu, char Map[MAX_Y][MAX_X], Players A);
+void destroyPlayer(int x, int y, int *pocetHracu, char Map[MAX_Y][MAX_X], Players *A);
 void destroyTerrain(int a, int b, char Map[MAX_Y][MAX_X]);
 void win();
 void dopad_str(int uhel, char pole[MAX_Y][MAX_X], int dopadX, int dopadY, int* povrchX, int* povrchY);
